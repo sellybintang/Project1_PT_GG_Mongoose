@@ -3,7 +3,7 @@ const app = express();
 const database = require('./config/database')
 const cors = require('cors');
 const morgan = require ('morgan');
-const router = require ('./routes/index');
+const router = require ('./app/routes/index');
 
 
 // Connection MongoDB

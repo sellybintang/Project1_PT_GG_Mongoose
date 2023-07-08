@@ -1,4 +1,4 @@
-const{Iklan} = require('../models/Iklan');
+const Iklan = require('../models/Iklan');
 
 // Read All Iklan
 const getIklan = async (req, res) => {
