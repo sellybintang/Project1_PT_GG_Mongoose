@@ -1,4 +1,5 @@
-const{Iklan} = require('../models');
+const{Iklan} = require('../models/Iklan');
+
 // Read All Iklan
 const getIklan = async (req, res) => {
     try {
@@ -8,7 +9,7 @@ const getIklan = async (req, res) => {
             iklans,
         });
     } catch (error) {
-        res.status(error.statusCode || 500).json({
+        return res.status(error.statusCode || 500).json({
             message: error.message,
         });
     }
@@ -38,7 +39,7 @@ const createIklan = async (req, res) => {
             newIklan,
         });
     } catch (error) {
-        res.status(error.statusCode || 500).json({
+        return res.status(error.statusCode || 500).json({
             message: error.message,
         });
     }
