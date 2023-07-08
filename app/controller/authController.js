@@ -6,10 +6,12 @@ const User = require("../models/users");
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ email });
+    console.log(user)
     if (!user)
       return res.status(400).json({ message: "Email tidak terdaftar" });
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = bcrypt.genSaltSync(password, user.password);
+    console.log (!validPassword);
     if (!validPassword)
       return res.status(400).json({ message: "Password salah" });
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
