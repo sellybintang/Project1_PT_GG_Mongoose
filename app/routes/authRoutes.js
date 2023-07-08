@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {login, register, verify, getProfile, getAllProfile, updateProfile} = require('../controller/authController');
+const {login, register, getProfile, getAllProfile, updateProfile} = require('../controller/authController');
 
 // middleware
 const auth = require('../../middleware/authentication');
