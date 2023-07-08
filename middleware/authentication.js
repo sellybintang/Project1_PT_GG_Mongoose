@@ -18,7 +18,8 @@ module.exports = function (req, res, next) {
 
         const payload = jwt.verify(token, process.env.JWT_SECRET);
         console.log('Payload:', payload)
-        User.findByPk(payload.id)
+        console.log(payload.id)
+        User.findById(payload.id)
             .then(instance => {
                 req.user = instance;
                 next()
