@@ -3,7 +3,7 @@ const Iklan = require('../models/Iklan');
 // Read All Iklan
 const getIklan = async (req, res) => {
     try {
-        const iklans = await Iklan.findAll();
+        const iklans = await Iklan.find();
         res.status(200).json({
             message: 'data arsip semua iklan',
             iklans,
@@ -18,11 +18,13 @@ const getIklan = async (req, res) => {
 // Read Iklb ById
 const getIklanById = async (req, res) => {
     try {
-        const { id, } = req.params;
-        const oneIklan = await Iklan.findOne({ where: { id, }, });
+        const id = req.params;
+        const oneIklan = await Iklan.findById(id.id);
         res.status(200).json({
-            iklan: oneIklan,
+            message: 'data arsip iklan',
+            oneIklan,
         });
+        console.log (oneIklan)
     } catch (error) {
         res.status(error.statusCode || 500).json({
             message: error.message,
@@ -48,8 +50,8 @@ const createIklan = async (req, res) => {
 // Update Iklan
 const updateIklan = async (req, res) => {
     try {
-        const { id, } = req.params;
-        await Iklan.update(req.body, { where: { id, }, });
+        const id = req.params;
+        await Iklan.findByIdAndUpdate(id.id, {$set:req.body},{new:true});
         res.status(200).json({
             message: 'data iklan berhasil diubah',
         });
@@ -63,8 +65,8 @@ const updateIklan = async (req, res) => {
 // Delete Iklan
 const deleteIklan = async (req, res) => {
     try {
-        const { id, } = req.params;
-        await Iklan.destroy({ where: { id, }, });
+        const id = req.params;
+        await Iklan.findByIdAndDelete( id.id);
         res.status(200).json({
             message: 'data iklan berhasil dihapus',
         });
