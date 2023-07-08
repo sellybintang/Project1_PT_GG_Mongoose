@@ -1,4 +1,4 @@
-const User = require("../app/models").Users;
+const User = require("../app/models/users")
 
 const isAdmin = async (req, res, next) => {
   try {

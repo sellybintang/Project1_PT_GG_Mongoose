@@ -1,9 +1,7 @@
 const jwt = require('jsonwebtoken');
-const User = require("../app/models").Users;
+const User = require("../app/models/users");
 
 module.exports = function (req, res, next) {
-    // req is an object
-    
     // Client will headers called authorization which contains JWT
     try {
         console.log(req.headers.authorization)
