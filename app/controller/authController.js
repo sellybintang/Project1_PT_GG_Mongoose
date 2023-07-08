@@ -10,7 +10,7 @@ const login = async (req, res) => {
     console.log(user)
     if (!user)
       return res.status(400).json({ message: "Email tidak terdaftar" });
-    const validPassword = bcrypt.genSaltSync(password, user.password);
+    const validPassword = bcrypt.compareSync(password, user.password);
     console.log (!validPassword);
     if (!validPassword)
       return res.status(400).json({ message: "Password salah" });
@@ -36,8 +36,8 @@ const register = async (req, res) => {
   if (user) {
     return res.status(400).json({ message: "User already exists" });
   }
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, salt);
+  const salt = await bcrypt.genSaltSync(10);
+  const hashedPassword = await bcrypt.hashSync(password, salt);
   const newUser = await User.create({
     firstName,
     lastName,
