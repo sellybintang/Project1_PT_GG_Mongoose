@@ -66,7 +66,7 @@ const updateIklan = async (req, res) => {
 const deleteIklan = async (req, res) => {
     try {
         const id = req.params;
-        await Iklan.findByIdAndDelete( id.id);
+        await Iklan.findByIdAndDelete( id._id);
         res.status(200).json({
             message: 'data iklan berhasil dihapus',
         });

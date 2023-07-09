@@ -1,7 +1,6 @@
 {
   "name": "project-1-pt-gg-mongoose",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,5 +18,15 @@
     "mongoose": "^7.3.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sellybintang/Project1_PT_GG_Mongoose.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sellybintang/Project1_PT_GG_Mongoose/issues"
+  },
+  "homepage": "https://github.com/sellybintang/Project1_PT_GG_Mongoose#readme",
+  "description": ""
 }
